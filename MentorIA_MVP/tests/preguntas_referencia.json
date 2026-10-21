@@ -1,0 +1,42 @@
+{
+  "descripcion": "Conjunto de referencia del plan de pruebas (CP-03): pregunta del estudiante y tema del sílabo que debe recuperarse entre los 3 primeros resultados.",
+  "en_silabo": [
+    {"curso": "GPC", "pregunta": "¿Cómo se calcula el CPI?", "tema": "Índices de desempeño y pronósticos"},
+    {"curso": "GPC", "pregunta": "¿Qué es la ruta crítica de un proyecto?", "tema": "Ruta crítica y holgura"},
+    {"curso": "GPC", "pregunta": "¿Cuál es la fórmula de PERT?", "tema": "Estimación de la duración y técnica PERT"},
+    {"curso": "GPC", "pregunta": "¿Qué contiene el acta de constitución?", "tema": "Acta de constitución del proyecto"},
+    {"curso": "GPC", "pregunta": "¿Qué es un paquete de trabajo en la EDT?", "tema": "Estructura de desglose del trabajo (EDT)"},
+    {"curso": "GPC", "pregunta": "Diferencia entre crashing y fast tracking", "tema": "Compresión del cronograma"},
+    {"curso": "GPC", "pregunta": "¿Qué significa valor ganado y valor planificado?", "tema": "Gestión del valor ganado"},
+    {"curso": "GPC", "pregunta": "¿Cómo clasifico a los interesados con la matriz de poder e interés?", "tema": "Identificación y análisis de interesados"},
+    {"curso": "GPC", "pregunta": "¿Qué es un objetivo SMART?", "tema": "Objetivos SMART"},
+    {"curso": "GPC", "pregunta": "¿Cuáles son las áreas de conocimiento del PMBOK?", "tema": "El PMI y la Guía del PMBOK"},
+    {"curso": "GPC", "pregunta": "¿Qué es la holgura total?", "tema": "Ruta crítica y holgura"},
+    {"curso": "GPC", "pregunta": "¿Cómo se calcula el número de canales de comunicación?", "tema": "Gestión de las comunicaciones"},
+    {"curso": "GPC", "pregunta": "¿Qué respuestas existen para las amenazas de un riesgo?", "tema": "Gestión de los riesgos"},
+    {"curso": "GPC", "pregunta": "¿Qué es el costo de la calidad?", "tema": "Gestión de la calidad"},
+    {"curso": "GPC", "pregunta": "¿Para qué sirve la matriz RACI?", "tema": "Gestión de los recursos"},
+    {"curso": "GPC", "pregunta": "¿Qué es el scope creep y cómo lo evito?", "tema": "Plan de gestión del alcance y enunciado del alcance"},
+    {"curso": "GPC", "pregunta": "¿Cómo se calcula el EAC?", "tema": "Índices de desempeño y pronósticos"},
+    {"curso": "GPC", "pregunta": "¿Qué tipos de dependencias hay entre actividades?", "tema": "Definición y secuencia de actividades"},
+    {"curso": "IHC", "pregunta": "¿Cuántos usuarios necesito para una prueba de usabilidad?", "tema": "Pruebas con usuarios"},
+    {"curso": "IHC", "pregunta": "¿Cómo se calcula el puntaje SUS?", "tema": "Cuestionario SUS"},
+    {"curso": "IHC", "pregunta": "¿Cuáles son las heurísticas de Nielsen?", "tema": "Heurísticas de Nielsen"},
+    {"curso": "IHC", "pregunta": "¿Qué dice la ley de Fitts?", "tema": "Ley de Fitts y ley de Hick"},
+    {"curso": "IHC", "pregunta": "¿Cuál es el contraste mínimo según WCAG?", "tema": "Pautas WCAG 2.1"},
+    {"curso": "IHC", "pregunta": "Diferencia entre prototipo de baja y alta fidelidad", "tema": "Prototipos de baja y alta fidelidad"},
+    {"curso": "IHC", "pregunta": "¿Cómo define la ISO 9241-11 la usabilidad?", "tema": "Usabilidad según ISO 9241-11"},
+    {"curso": "IHC", "pregunta": "¿Qué es una affordance?", "tema": "Modelos mentales y affordances"},
+    {"curso": "IHC", "pregunta": "¿Qué es un customer journey map?", "tema": "Investigación de usuarios"},
+    {"curso": "IHC", "pregunta": "¿Cuáles son las etapas del design thinking?", "tema": "Design thinking"},
+    {"curso": "IHC", "pregunta": "¿Qué son los principios de la Gestalt?", "tema": "Principios de la Gestalt"},
+    {"curso": "IHC", "pregunta": "¿Qué tamaño deben tener los botones en móvil?", "tema": "Diseño de interfaces móviles"}
+  ],
+  "fuera_de_silabo": [
+    {"curso": "GPC", "pregunta": "¿Quién ganó el mundial de fútbol 2022?"},
+    {"curso": "GPC", "pregunta": "Dame una receta de ceviche"},
+    {"curso": "IHC", "pregunta": "¿Cuál es la capital de Australia?"},
+    {"curso": "IHC", "pregunta": "Resuelve la integral de x al cuadrado"},
+    {"curso": "GPC", "pregunta": "¿Qué película me recomiendas hoy?"}
+  ]
+}

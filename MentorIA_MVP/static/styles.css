@@ -1,0 +1,131 @@
+:root {
+  --fondo: #f4f6fa;
+  --tarjeta: #ffffff;
+  --texto: #1d2433;
+  --suave: #5b6478;
+  --borde: #dde2ec;
+  --primario: #2b4c9b;
+  --primario-claro: #e8eefb;
+  --acento: #0f8a6c;
+  --alto: #c0392b;
+  --medio: #c97a06;
+  --bajo: #2e7d4f;
+  --radio: 12px;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif; background: var(--fondo); color: var(--texto); font-size: 15px; }
+button, input, select { font: inherit; }
+
+.barra { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; padding: 12px 20px; background: var(--primario); color: #fff; }
+.marca { display: flex; align-items: center; gap: 10px; }
+.marca small { display: block; opacity: .8; font-size: 12px; }
+.marca strong { font-size: 18px; }
+.logo { width: 36px; height: 36px; border-radius: 10px; background: #fff; color: var(--primario); display: grid; place-items: center; font-weight: 800; font-size: 20px; }
+.controles { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.rol { display: flex; background: rgba(255,255,255,.15); border-radius: 999px; padding: 3px; }
+.rol button { border: 0; background: transparent; color: #fff; padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.rol button.activo { background: #fff; color: var(--primario); font-weight: 600; }
+.campo { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.campo select { border: 0; border-radius: 8px; padding: 6px 8px; }
+
+.pestanas { display: flex; gap: 4px; padding: 0 20px; background: var(--tarjeta); border-bottom: 1px solid var(--borde); overflow-x: auto; }
+.pestanas a { padding: 12px 14px; color: var(--suave); text-decoration: none; border-bottom: 3px solid transparent; white-space: nowrap; }
+.pestanas a.activa { color: var(--primario); border-color: var(--primario); font-weight: 600; }
+
+main { max-width: 1100px; margin: 20px auto; padding: 0 16px; outline: none; }
+.tarjeta { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: var(--radio); padding: 18px; margin-bottom: 16px; }
+.tarjeta h2 { margin: 0 0 4px; font-size: 18px; }
+.tarjeta h3 { margin: 0 0 10px; font-size: 15px; }
+.sub { color: var(--suave); margin: 0 0 14px; font-size: 13px; }
+.rejilla { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.kpi { background: var(--tarjeta); border: 1px solid var(--borde); border-radius: var(--radio); padding: 14px 16px; }
+.kpi .valor { font-size: 26px; font-weight: 700; }
+.kpi .etiqueta { color: var(--suave); font-size: 13px; }
+
+/* Chat */
+.chat { display: flex; flex-direction: column; min-height: 62vh; }
+.mensajes { flex: 1; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; max-height: 56vh; padding: 4px; }
+.msg { max-width: 82%; padding: 10px 14px; border-radius: 14px; line-height: 1.45; white-space: pre-wrap; }
+.msg.yo { align-self: flex-end; background: var(--primario); color: #fff; border-bottom-right-radius: 4px; }
+.msg.bot { align-self: flex-start; background: var(--primario-claro); border-bottom-left-radius: 4px; }
+.msg.bot.fuera { background: #fff4e5; }
+.meta { display: block; margin-top: 6px; font-size: 12px; color: var(--suave); }
+.entrada { display: flex; gap: 8px; margin-top: 12px; }
+.entrada input { flex: 1; padding: 11px 14px; border: 1px solid var(--borde); border-radius: 10px; }
+button.primario, .entrada button { background: var(--primario); color: #fff; border: 0; border-radius: 10px; padding: 10px 18px; cursor: pointer; font-weight: 600; }
+button.secundario { background: var(--primario-claro); color: var(--primario); border: 0; border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+.sugerencias { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.sugerencias button { border: 1px solid var(--borde); background: #fff; border-radius: 999px; padding: 5px 12px; cursor: pointer; font-size: 13px; color: var(--suave); }
+
+/* Formularios */
+.formulario { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); align-items: end; }
+.formulario label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--suave); }
+.formulario input { padding: 8px 10px; border: 1px solid var(--borde); border-radius: 8px; }
+.checks { display: flex; flex-wrap: wrap; gap: 8px 16px; margin: 12px 0; font-size: 13px; }
+
+/* Plan */
+.semana { margin-top: 14px; }
+.semana h4 { margin: 0 0 6px; color: var(--primario); font-size: 14px; }
+.tarea { display: flex; gap: 10px; align-items: flex-start; padding: 9px 10px; border: 1px solid var(--borde); border-radius: 10px; margin-bottom: 6px; }
+.tarea.hecha { background: #f0f8f4; opacity: .8; }
+.tarea.hecha .t-tema { text-decoration: line-through; }
+.tarea input { margin-top: 3px; width: 18px; height: 18px; }
+.t-tema { font-weight: 600; }
+.t-det { font-size: 13px; color: var(--suave); }
+.progreso { height: 10px; background: var(--borde); border-radius: 999px; overflow: hidden; }
+.progreso > div { height: 100%; background: var(--acento); }
+
+/* Gamificación */
+.insignias { display: flex; flex-wrap: wrap; gap: 10px; }
+.insignia { border: 1px solid var(--borde); border-radius: 12px; padding: 10px 12px; width: 190px; font-size: 13px; }
+.insignia.ok { border-color: var(--acento); background: #effaf6; }
+.insignia.no { opacity: .55; }
+.insignia b { display: block; margin-bottom: 2px; }
+
+/* Riesgo */
+.semaforo { display: inline-block; padding: 4px 12px; border-radius: 999px; color: #fff; font-weight: 600; font-size: 13px; }
+.semaforo.alto { background: var(--alto); }
+.semaforo.medio { background: var(--medio); }
+.semaforo.bajo { background: var(--bajo); }
+
+/* Tablero */
+.barras { display: flex; flex-direction: column; gap: 8px; }
+.barra-fila { display: grid; grid-template-columns: minmax(140px, 38%) 1fr 48px; gap: 10px; align-items: center; font-size: 13px; }
+.barra-fila .pista { background: var(--primario-claro); border-radius: 6px; height: 16px; overflow: hidden; }
+.barra-fila .pista > div { height: 100%; background: var(--primario); border-radius: 6px; }
+.barra-fila .num { text-align: right; font-variant-numeric: tabular-nums; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid var(--borde); }
+th { color: var(--suave); font-weight: 600; }
+td.num { text-align: right; font-variant-numeric: tabular-nums; }
+.vacio { color: var(--suave); font-style: italic; }
+.error { color: var(--alto); }
+
+.pie { text-align: center; color: var(--suave); font-size: 12px; padding: 16px; }
+
+.campo input { border: 0; border-radius: 8px; padding: 6px 8px; width: 92px; text-transform: uppercase; }
+.filtros { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 8px; }
+.filtros input { flex: 0 1 220px; padding: 7px 10px; border: 1px solid var(--borde); border-radius: 8px; }
+.segmentado { display: flex; background: var(--primario-claro); border-radius: 999px; padding: 3px; }
+.segmentado button { border: 0; background: transparent; color: var(--primario); padding: 6px 14px; border-radius: 999px; cursor: pointer; }
+.segmentado button.activo { background: var(--primario); color: #fff; font-weight: 600; }
+button.enlace { border: 0; background: none; padding: 0; color: var(--primario); font: inherit; font-weight: 600; text-decoration: underline; cursor: pointer; }
+.carga { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 6px; }
+.carga input[type=file] { flex: 1 1 240px; padding: 7px; border: 1px dashed var(--borde); border-radius: 8px; background: var(--fondo); }
+.sugerencias button { max-width: 100%; white-space: normal; text-align: left; }
+main, .tarjeta, .chat, .mensajes { min-width: 0; }
+.tarjeta h2 { overflow-wrap: anywhere; }
+
+@media (max-width: 640px) {
+  .barra { padding: 10px 14px; }
+  .controles { width: 100%; }
+  .campo { flex: 1 1 100%; justify-content: space-between; }
+  .campo select { flex: 1; min-width: 0; max-width: 75%; }
+  .campo input { flex: 1; min-width: 0; max-width: 75%; width: auto; }
+  main { padding: 0 12px; }
+  table { display: block; overflow-x: auto; }
+  main { margin: 12px auto; }
+  .msg { max-width: 92%; }
+  .insignia { width: 100%; }
+  .barra-fila { grid-template-columns: 1fr 1fr 36px; }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MentorIA</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="barra">
+  <div class="marca"><span class="logo" aria-hidden="true">M</span><div><strong>MentorIA</strong><small>Asistente académico con IA</small></div></div>
+  <div class="controles">
+    <div class="rol" role="tablist" aria-label="Rol">
+      <button id="rol-est" class="activo" data-rol="estudiante">Estudiante</button>
+      <button id="rol-doc" data-rol="docente">Docente</button>
+    </div>
+    <label class="campo">Curso <select id="curso"></select></label>
+    <label class="campo" id="campo-est">Código <input id="estudiante" list="codigos" autocomplete="off" spellcheck="false" maxlength="4" title="Escriba o elija un código, por ejemplo E001"><datalist id="codigos"></datalist></label>
+  </div>
+</header>
+
+<nav class="pestanas" id="pestanas"></nav>
+
+<main id="vista" tabindex="-1"></main>
+
+<footer class="pie">MentorIA v<span id="version">–</span> · MVP del Grupo 1 · Datos simulados y anonimizados (Ley N.° 29733) · <span id="modo"></span></footer>
+
+<template id="t-chat">
+  <section class="tarjeta chat">
+    <div class="mensajes" id="mensajes" aria-live="polite"></div>
+    <form id="form-chat" class="entrada">
+      <input id="pregunta" autocomplete="off" placeholder="Escribe tu duda sobre el curso…" aria-label="Pregunta" maxlength="500">
+      <button type="submit">Enviar</button>
+    </form>
+    <div class="sugerencias" id="sugerencias"></div>
+  </section>
+</template>
+
+<script src="app.js"></script>
+</body>
+</html>

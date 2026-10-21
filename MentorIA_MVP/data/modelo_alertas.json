@@ -1,0 +1,26 @@
+{
+  "pesos": [
+    -5.651464665267364,
+    -8.672221553071527,
+    -5.531232991933748,
+    -3.0343606818844813
+  ],
+  "sesgo": 14.587619727327809,
+  "umbral": 0.4,
+  "variables": [
+    "nota_pc1",
+    "nota_pc2",
+    "asistencia",
+    "tareas"
+  ],
+  "metricas": {
+    "verdaderos_positivos": 19,
+    "falsos_positivos": 7,
+    "verdaderos_negativos": 42,
+    "falsos_negativos": 4,
+    "sensibilidad": 0.8261,
+    "precision": 0.7308,
+    "exactitud": 0.8472,
+    "n_prueba": 72
+  }
+}
