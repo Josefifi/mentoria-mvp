@@ -23,7 +23,7 @@ Atajo: abrir la carpeta en el Explorador, escribir `powershell` en la barra de d
 ```
 python seed_demo.py
 ```
-Debe decir: `Datos de demostración cargados: 148 consultas...`.
+Debe decir: `Datos de demostración cargados: 139 consultas...` y una línea por curso (Gestión de Proyectos tiene más uso que IHC).
 Esto llena el tablero docente con preguntas de ejemplo y deja al estudiante E001 con un plan avanzado y 3 insignias.
 **Ojo:** cada vez que se ejecuta borra todo y vuelve a empezar. Úsenlo para "reiniciar" la demo.
 
@@ -73,6 +73,8 @@ Arriba deben estar seleccionados **Estudiante** y el curso **Gestión de Proyect
 ### Escena 4 – El docente · 2,5 min
 1. Arriba, cambiar a **Docente**. Se abre el **Tablero docente**.
    > *Decir:* "El docente ve en qué temas se concentran las dudas. Aquí, valor ganado y ruta crítica: son los temas que conviene reforzar en clase. Solo se muestran datos agregados, sin nombres."
+   - Señalar **Activos esta semana** (cuántos alumnos del curso usaron el chatbot o su plan en los últimos 7 días) y **Preguntas fuera del sílabo** (temas que los alumnos buscan y el curso no cubre).
+   - (Opcional) Cambiar el curso a **Interacción Humano-Computador**: tiene menos uso y otros temas con más dudas (SUS, heurísticas de Nielsen).
    - Bajar hasta **Consultas recientes**: arriba aparece la pregunta del CPI que se hizo en la escena 1.
      > *Decir:* "Lo que el alumno le pregunta al chatbot llega al docente al instante, sin decir quién preguntó."
 2. Ir a **Alertas de riesgo**.

@@ -29,7 +29,7 @@ def metricas_curso(con, indice, modelo, dataset, curso):
                                     SUM(CASE WHEN en_silabo=0 THEN 1 ELSE 0 END) fuera
                              FROM consultas WHERE curso=?""", (curso,)).fetchone()
     recientes = [dict(r) for r in con.execute(
-        "SELECT pregunta, tema, fecha FROM consultas WHERE curso=? AND en_silabo=1 ORDER BY id DESC LIMIT 8", (curso,))]
+        "SELECT pregunta, tema, fecha FROM consultas WHERE curso=? AND en_silabo=1 ORDER BY fecha DESC, id DESC LIMIT 8", (curso,))]
     alertas = alertas_curso(modelo, dataset, curso)
     # Activos en los últimos 7 días: preguntaron al chatbot o completaron una tarea de su plan del curso.
     activos = con.execute("""SELECT COUNT(*) FROM (
