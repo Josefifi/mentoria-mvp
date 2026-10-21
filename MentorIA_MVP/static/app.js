@@ -186,7 +186,7 @@ async function vistaTablero() {
     h("div", { class: "rejilla" },
       h("div", { class: "kpi" }, h("div", { class: "valor" }, t.total_consultas), h("div", { class: "etiqueta" }, "Consultas al chatbot")),
       h("div", { class: "kpi" }, h("div", { class: "valor" }, `${t.estudiantes_activos} / ${t.estudiantes_curso}`),
-        h("div", { class: "etiqueta" }, `Estudiantes activos esta semana (${t.porcentaje_activos} %): usaron el chatbot o su plan`)),
+        h("div", { class: "etiqueta" }, `Activos esta semana (${t.porcentaje_activos} %) · chatbot o plan`)),
       h("div", { class: "kpi" }, h("div", { class: "valor" }, `${t.tiempo_respuesta_ms} ms`), h("div", { class: "etiqueta" }, "Tiempo de respuesta promedio (servidor)")),
       h("div", { class: "kpi" }, h("div", { class: "valor" }, `${t.alertas.alto} / ${t.alertas.medio}`), h("div", { class: "etiqueta" }, "Alertas de riesgo alto / medio"))),
     h("section", { class: "tarjeta", style: "margin-top:16px" },
