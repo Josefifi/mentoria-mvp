@@ -89,11 +89,14 @@ def completar_tarea(con, tarea_id, estudiante, cuando=None):
     return gamificacion(con, estudiante)
 
 
-def _racha(dias):
-    """Días consecutivos con al menos una tarea, contando hacia atrás desde el último día activo."""
+def _racha(dias, hoy=None):
+    """Días consecutivos con al menos una tarea. La racha sigue viva solo si la última tarea fue hoy o ayer."""
     if not dias:
         return 0
+    hoy = hoy or date.today()
     ordenados = sorted(dias, reverse=True)
+    if ordenados[0] < hoy - timedelta(days=1):
+        return 0  # se saltó al menos un día: la racha se perdió (las insignias ganadas se conservan)
     racha, previo = 1, ordenados[0]
     for d in ordenados[1:]:
         if previo - d == timedelta(days=1):
@@ -104,12 +107,12 @@ def _racha(dias):
     return racha
 
 
-def gamificacion(con, estudiante):
+def gamificacion(con, estudiante, hoy=None):
     filas = con.execute("""SELECT t.*, p.curso FROM tareas t JOIN planes p ON p.id=t.plan_id
                            WHERE p.estudiante=?""", (estudiante,)).fetchall()
     hechas = [f for f in filas if f["completada"]]
     dias = {date.fromisoformat(f["completada_en"][:10]) for f in hechas}
-    racha = _racha(dias)
+    racha = _racha(dias, hoy)
     # Solo cuentan las preguntas que el chatbot respondió con el sílabo, con un tope por día.
     por_dia = con.execute("""SELECT substr(fecha, 1, 10) dia, COUNT(*) n FROM consultas
                              WHERE estudiante=? AND en_silabo=1 GROUP BY dia""", (estudiante,)).fetchall()

@@ -125,13 +125,18 @@ class PruebasPlanes(unittest.TestCase):
     def test_cp08_gamificacion(self):
         """CP-08 | RF-06 | Completar tareas otorga puntos, calcula la racha de días e insignias."""
         plan = self.app.crear_plan({"estudiante": "E003", "curso": "GPC", "horas_semana": 3, "semanas": 2})
-        base = datetime(2026, 10, 14, 20, 0)
+        base = datetime.now().replace(hour=8, minute=0) - timedelta(days=2)   # anteayer, ayer y hoy
         for i in range(3):
             g = planes.completar_tarea(self.app.con, plan["tareas"][i]["id"], "E003", cuando=base + timedelta(days=i))
         self.assertEqual(g["puntos"], 3 * planes.PUNTOS_POR_TAREA)
         self.assertEqual(g["racha_dias"], 3)
         ids = {i["id"] for i in g["insignias"]}
         self.assertTrue({"primer_paso", "racha_3"} <= ids)
+        # si deja de estudiar más de un día, la racha se pierde pero la insignia ganada se conserva
+        g_tarde = planes.gamificacion(self.app.con, "E003", hoy=base.date() + timedelta(days=5))
+        self.assertEqual(g_tarde["racha_dias"], 0)
+        self.assertIn("racha_3", {i["id"] for i in g_tarde["insignias"]})
+        self.assertEqual(planes.gamificacion(self.app.con, "E003", hoy=base.date() + timedelta(days=3))["racha_dias"], 3)
         # completar dos veces la misma tarea no suma puntos dobles
         g2 = planes.completar_tarea(self.app.con, plan["tareas"][0]["id"], "E003")
         self.assertEqual(g2["puntos"], g["puntos"])
