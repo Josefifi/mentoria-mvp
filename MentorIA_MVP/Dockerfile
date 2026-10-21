@@ -6,6 +6,9 @@ FROM python:3.12-slim
 RUN useradd -m -u 1000 user
 USER user
 ENV PYTHONUNBUFFERED=1 PYTHONIOENCODING=utf-8
+# Hora de Perú (UTC−5, sin horario de verano) para las fechas de las consultas.
+ENV TZ=<-05>5
+
 WORKDIR /home/user/app
 COPY --chown=user . .
 
