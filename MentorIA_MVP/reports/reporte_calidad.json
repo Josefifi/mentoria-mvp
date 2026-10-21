@@ -1,11 +1,11 @@
 {
-  "fecha": "21/10/2026 13:24",
+  "fecha": "21/10/2026 13:51",
   "entorno": "Python 3.12.10 · Windows 11",
   "total": 19,
   "aprobados": 19,
   "fallidos": 0,
   "errores": 0,
-  "duracion_s": 4.11,
+  "duracion_s": 3.47,
   "casos": [
     {
       "codigo": "CP-01",
@@ -13,7 +13,7 @@
       "descripcion": "El 100 % de los temas de los sílabos de los 2 cursos piloto queda indexado.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 1.0
+      "ms": 1.4
     },
     {
       "codigo": "CP-02",
@@ -21,7 +21,7 @@
       "descripcion": "La respuesta usa el fragmento pertinente del sílabo y cita curso, unidad y tema.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 1.1
+      "ms": 1.3
     },
     {
       "codigo": "CP-03",
@@ -45,7 +45,7 @@
       "descripcion": "Cada consulta queda registrada con su tema para alimentar el tablero docente.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 5.9
+      "ms": 6.3
     },
     {
       "codigo": "CP-06",
@@ -53,7 +53,7 @@
       "descripcion": "Se genera un plan para un estudiante de prueba en cada curso piloto, priorizando las unidades débiles.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 49.6
+      "ms": 70.4
     },
     {
       "codigo": "CP-07",
@@ -61,7 +61,7 @@
       "descripcion": "El plan rechaza horas o semanas fuera de rango.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 33.2
+      "ms": 43.6
     },
     {
       "codigo": "CP-08",
@@ -69,7 +69,7 @@
       "descripcion": "Completar tareas otorga puntos, calcula la racha de días e insignias.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 184.2
+      "ms": 181.6
     },
     {
       "codigo": "CP-09",
@@ -77,7 +77,7 @@
       "descripcion": "El modelo devuelve probabilidades entre 0 y 1 y asigna más riesgo a peores notas y asistencia.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 0.2
+      "ms": 0.1
     },
     {
       "codigo": "CP-10",
@@ -93,7 +93,7 @@
       "descripcion": "El tablero agrega las consultas por tema y coincide con lo registrado.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 101.3
+      "ms": 127.0
     },
     {
       "codigo": "CP-12",
@@ -101,7 +101,7 @@
       "descripcion": "El docente ve a sus estudiantes ordenados por riesgo; solo se marcan los que superan el umbral.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 49.1
+      "ms": 42.4
     },
     {
       "codigo": "CP-13",
@@ -109,7 +109,7 @@
       "descripcion": "El tiempo de respuesta promedio del chatbot, medido extremo a extremo, es menor a 5 s.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 914.5
+      "ms": 826.9
     },
     {
       "codigo": "CP-14",
@@ -117,7 +117,7 @@
       "descripcion": "El modelo detecta al menos el 70 % de los estudiantes en riesgo en los datos simulados de prueba.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 1834.2
+      "ms": 1216.1
     },
     {
       "codigo": "CP-15",
@@ -125,7 +125,7 @@
       "descripcion": "Los datos son simulados y anonimizados: solo códigos E###, sin nombres, DNI ni correos.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 3.0
+      "ms": 2.5
     },
     {
       "codigo": "CP-16",
@@ -133,7 +133,7 @@
       "descripcion": "La API valida las entradas y la interfaz no inserta HTML sin escapar (OWASP).",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 174.1
+      "ms": 171.0
     },
     {
       "codigo": "CP-17",
@@ -141,7 +141,7 @@
       "descripcion": "La interfaz es accesible desde web y móvil (viewport y diseño adaptable).",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 5.4
+      "ms": 4.5
     },
     {
       "codigo": "CP-18",
@@ -149,7 +149,7 @@
       "descripcion": "Flujo completo: pregunta, plan, tarea completada, logros y tablero.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 66.7
+      "ms": 98.1
     },
     {
       "codigo": "CP-19",
@@ -157,7 +157,7 @@
       "descripcion": "El docente carga un CSV anonimizado de notas; se rechazan datos personales y valores fuera de rango.",
       "resultado": "Aprobado",
       "detalle": "",
-      "ms": 37.0
+      "ms": 39.3
     }
   ],
   "metricas": {
@@ -185,9 +185,9 @@
     "rechazo_fuera_silabo": 1.0,
     "tiempo_respuesta": {
       "consultas": 60,
-      "promedio_ms": 15.22,
-      "p95_ms": 33.41,
-      "maximo_ms": 79.23,
+      "promedio_ms": 13.77,
+      "p95_ms": 32.52,
+      "maximo_ms": 50.58,
       "modo": "extractivo"
     }
   },
@@ -220,8 +220,8 @@
       "requerimiento": "RNF-01",
       "criterio": "Tiempo de respuesta promedio del chatbot",
       "meta": "< 5 s",
-      "valor": 15.22,
-      "valor_texto": "15 ms",
+      "valor": 13.77,
+      "valor_texto": "14 ms",
       "cumple": true
     },
     {

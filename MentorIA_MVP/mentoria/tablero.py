@@ -31,10 +31,22 @@ def metricas_curso(con, indice, modelo, dataset, curso):
     recientes = [dict(r) for r in con.execute(
         "SELECT pregunta, tema, fecha FROM consultas WHERE curso=? AND en_silabo=1 ORDER BY id DESC LIMIT 8", (curso,))]
     alertas = alertas_curso(modelo, dataset, curso)
+    # Activos en los últimos 7 días: preguntaron al chatbot o completaron una tarea de su plan del curso.
+    activos = con.execute("""SELECT COUNT(*) FROM (
+                                 SELECT estudiante FROM consultas
+                                 WHERE curso=? AND fecha >= datetime('now', 'localtime', '-7 days')
+                                 UNION
+                                 SELECT p.estudiante FROM tareas t JOIN planes p ON p.id = t.plan_id
+                                 WHERE p.curso=? AND t.completada=1
+                                   AND t.completada_en >= datetime('now', 'localtime', '-7 days'))""",
+                          (curso, curso)).fetchone()[0]
+    matriculados = sum(1 for r in dataset if r["curso"] == curso)
     return {
         "curso": curso,
         "total_consultas": resumen["n"] or 0,
-        "estudiantes_activos": resumen["est"] or 0,
+        "estudiantes_activos": activos,
+        "estudiantes_curso": matriculados,
+        "porcentaje_activos": round(100 * activos / matriculados) if matriculados else 0,
         "tiempo_respuesta_ms": round(resumen["ms"] or 0, 2),
         "consultas_fuera_de_silabo": resumen["fuera"] or 0,
         "temas": detalle,

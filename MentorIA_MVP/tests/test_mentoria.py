@@ -236,6 +236,12 @@ class PruebasTablero(unittest.TestCase):
         self.assertEqual(por_tema["Índices de desempeño y pronósticos"]["consultas"], 3)
         self.assertEqual(por_tema["Ruta crítica y holgura"]["consultas"], 1)
         self.assertEqual(t["temas_criticos"][0]["tema"], "Índices de desempeño y pronósticos")
+        # activos de la semana: los que preguntaron (E001, E003, E005) más quien avanzó su plan (E007)
+        self.assertEqual((t["estudiantes_activos"], t["estudiantes_curso"]), (3, 120))
+        plan = self.app.crear_plan({"estudiante": "E007", "curso": "GPC", "horas_semana": 3, "semanas": 2})
+        self.app.completar(plan["tareas"][0]["id"], "E007")
+        t = self.app.tablero("GPC")
+        self.assertEqual((t["estudiantes_activos"], t["porcentaje_activos"]), (4, 3))
 
     def test_cp12_lista_de_alertas(self):
         """CP-12 | RF-10 | El docente ve a sus estudiantes ordenados por riesgo; solo se marcan los que superan el umbral."""
