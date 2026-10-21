@@ -161,7 +161,7 @@ async function vistaProgreso() {
       h("div", { class: "kpi" }, h("div", { class: "valor" }, g.puntos), h("div", { class: "etiqueta" }, "Puntos")),
       h("div", { class: "kpi" }, h("div", { class: "valor" }, `${g.racha_dias} 🔥`), h("div", { class: "etiqueta" }, "Días de racha")),
       h("div", { class: "kpi" }, h("div", { class: "valor" }, `${g.tareas_completadas}/${g.tareas_totales}`), h("div", { class: "etiqueta" }, "Tareas del plan")),
-      h("div", { class: "kpi" }, h("div", { class: "valor" }, g.preguntas_chatbot), h("div", { class: "etiqueta" }, "Preguntas al chatbot"))),
+      h("div", { class: "kpi" }, h("div", { class: "valor" }, g.preguntas_chatbot), h("div", { class: "etiqueta" }, "Preguntas válidas al chatbot"))),
     h("section", { class: "tarjeta", style: "margin-top:16px" },
       h("h2", {}, "Insignias"),
       h("div", { class: "insignias" },

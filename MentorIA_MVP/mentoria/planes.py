@@ -7,6 +7,8 @@ La gamificación se limita a lo aprobado en el alcance: puntos, rachas e insigni
 from datetime import date, datetime, timedelta
 
 PUNTOS_POR_TAREA = 10
+PUNTOS_POR_PREGUNTA = 2
+TOPE_PREGUNTAS_DIA = 5   # solo puntúan 5 preguntas por día: estudiar el plan sigue siendo lo que más suma
 ACTIVIDADES = [
     "Leer el tema en el sílabo y resumirlo en 5 líneas",
     "Resolver 3 preguntas de práctica con el chatbot",
@@ -17,7 +19,7 @@ INSIGNIAS = {
     "primer_paso": "Primer paso – completaste tu primera tarea",
     "racha_3": "Racha de 3 días estudiando",
     "racha_7": "Constancia – 7 días seguidos",
-    "explorador": "Explorador – 5 preguntas al chatbot",
+    "explorador": "Explorador – 5 preguntas respondidas con el sílabo",
     "unidad_dominada": "Unidad dominada – todas las tareas de una unidad",
     "plan_completo": "Plan completo",
 }
@@ -108,7 +110,11 @@ def gamificacion(con, estudiante):
     hechas = [f for f in filas if f["completada"]]
     dias = {date.fromisoformat(f["completada_en"][:10]) for f in hechas}
     racha = _racha(dias)
-    preguntas = con.execute("SELECT COUNT(*) FROM consultas WHERE estudiante=?", (estudiante,)).fetchone()[0]
+    # Solo cuentan las preguntas que el chatbot respondió con el sílabo, con un tope por día.
+    por_dia = con.execute("""SELECT substr(fecha, 1, 10) dia, COUNT(*) n FROM consultas
+                             WHERE estudiante=? AND en_silabo=1 GROUP BY dia""", (estudiante,)).fetchall()
+    preguntas = sum(r["n"] for r in por_dia)
+    puntuables = sum(min(r["n"], TOPE_PREGUNTAS_DIA) for r in por_dia)
     nuevas = set()
     if hechas:
         nuevas.add("primer_paso")
@@ -135,7 +141,7 @@ def gamificacion(con, estudiante):
                                                      (estudiante,))]
     return {
         "estudiante": estudiante,
-        "puntos": PUNTOS_POR_TAREA * len(hechas) + 2 * preguntas,
+        "puntos": PUNTOS_POR_TAREA * len(hechas) + PUNTOS_POR_PREGUNTA * puntuables,
         "tareas_completadas": len(hechas),
         "tareas_totales": len(filas),
         "racha_dias": racha,

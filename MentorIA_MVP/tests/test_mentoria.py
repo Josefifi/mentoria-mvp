@@ -137,6 +137,13 @@ class PruebasPlanes(unittest.TestCase):
         self.assertEqual(g2["puntos"], g["puntos"])
         with self.assertRaises(ValueError):
             planes.completar_tarea(self.app.con, plan["tareas"][0]["id"], "E004")
+        # preguntas: solo suman las respondidas con el sílabo y como máximo 5 por día
+        for _ in range(7):
+            self.app.chat("E003", "GPC", "¿Qué es la ruta crítica?")
+        self.app.chat("E003", "GPC", "¿Quién ganó el mundial 2022?")
+        g3 = planes.gamificacion(self.app.con, "E003")
+        self.assertEqual(g3["preguntas_chatbot"], 7)
+        self.assertEqual(g3["puntos"], g["puntos"] + planes.TOPE_PREGUNTAS_DIA * planes.PUNTOS_POR_PREGUNTA)
 
 
 class PruebasAlertas(unittest.TestCase):

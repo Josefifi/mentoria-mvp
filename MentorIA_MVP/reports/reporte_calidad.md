@@ -1,8 +1,8 @@
 # Reporte de calidad – MentorIA MVP
 
-Fecha: 20/10/2026 23:04 · Entorno: Python 3.12.10 · Windows 11
+Fecha: 21/10/2026 13:24 · Entorno: Python 3.12.10 · Windows 11
 
-**19 de 19 casos aprobados** en 3.82 s.
+**19 de 19 casos aprobados** en 4.11 s.
 
 ## Criterios de aceptación
 
@@ -11,7 +11,7 @@ Fecha: 20/10/2026 23:04 · Entorno: Python 3.12.10 · Windows 11
 | RF-01 | Sílabos de los 2 cursos piloto indexados | 100 % | 100% | Sí |
 | RF-02 | Recuperación del tema correcto (top 3) | ≥ 90 % | 100.0% | Sí |
 | RF-03 | Rechazo de preguntas fuera del sílabo | 100 % | 100% | Sí |
-| RNF-01 | Tiempo de respuesta promedio del chatbot | < 5 s | 24 ms | Sí |
+| RNF-01 | Tiempo de respuesta promedio del chatbot | < 5 s | 15 ms | Sí |
 | RNF-02 | Sensibilidad del modelo de alertas | ≥ 70 % | 82.6% | Sí |
 
 ## Casos de prueba

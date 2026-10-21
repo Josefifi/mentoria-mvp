@@ -115,6 +115,13 @@ La red Wi-Fi de la universidad a veces bloquea la conexión entre equipos. Si no
 
 ---
 
+### Versión en internet (respaldo)
+El MVP también está publicado en **https://mentoria-mvp.onrender.com**, con los mismos datos de demostración. Sirve para abrirlo desde cualquier celular sin estar en la misma Wi-Fi, o si falla la laptop.
+- Está en el plan gratuito de Render: **se duerme tras 15 minutos sin visitas** y tarda alrededor de un minuto en despertar. Ábranlo 5 minutos antes de exponer.
+- Cada vez que se reinicia vuelve a los datos de demostración. Es público: no carguen datos reales.
+
+---
+
 ## Parte 5. Si algo falla
 
 | Problema | Solución |
